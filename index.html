@@ -15,5 +15,96 @@
   </head>
   <body>
     <h1> MAS.S70 | Applied Data Visualization Sebastián Hurtado </h1>
+        <div id="viz-container">
+              <div class="single_viz" id="map">
+                  <div class="text">
+                    My Path
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                      when an unknown printer took a galley of type and scrambled it to make
+                      a type specimen book. </p>
+                  </div>
+                  <div class="chart" id="svg_map"></div>
+              </div>
+
+              <hr/>
+
+              <div class="single_viz" id="bubble">
+                  <div class="text">
+                      In My Leisure Time
+                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                        when an unknown printer took a galley of type and scrambled it to make
+                        a type specimen book. </p>
+                      <button class="button" type="button" onclick="shuffle_colors();">Shuffle the colors</button>
+                      <br>
+                      <div class="dropdown">
+                      <button class="dropbtn"><span id="cat">all</span> <span style='float: right;'>▼</span></button>
+                      <div class="dropdown-content">
+                          <a onclick="filter('sports');">sports</a>
+                          <a onclick="filter('arts');">arts</a>
+                          <a onclick="filter('food');">food</a>
+                          <a onclick="filter('all');">all</a>
+                        </div>
+                      </div>
+                  </div>
+                  <svg class="chart" id="svg_bubble"></svg>
+              </div>
+
+              <hr/>
+
+              <div class="single_viz" id="favorite">
+                  <div class="text">
+                    My Favorite ..
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                      when an unknown printer took a galley of type and scrambled it to make
+                      a type specimen book. </p>
+                  </div>
+                  <div class="allFavorites">
+                    <div class="favorites" id="favorites">
+                      <h4> Color </h4>
+                      <div>
+                        <!-- Add a geometric shape and color it with your favorite color -->
+                      </div>
+                    </div>
+                    <div class="favorites">
+                      <h4> Book </h4>
+                        <img src="images/whyInformationGrows.jpg" width="100" height= "150"/>
+                    </div>
+                    <div class="favorites">
+                      <h4> Animal </h4>
+                      <!-- Add a gif of your favorite animal -->
+                    </div>
+                    <div class="favorites">
+                      <h4> Cuisine </h4>
+                      <!-- Link the image to a website that shows a delicious recipe for a pasta dish -->
+                        <img src="images/pasta.png" width="220" height= "150"/>
+                    </div>
+                  </div>
+                </div>
+
+                <hr/>
+
+              <!-- Add other sections if you like -->
+              <div class="single_viz" >
+                  <div class="text">Put anything you'd like to share!</div>
+                  <svg class="chart" id="chart" width="420" height="120"></svg>
+              </div>
+          </div>
+        </div>
+
+        <script src="http://d3plus.org/js/d3.js"></script>
+        <script src="http://d3plus.org/js/d3plus.js"></script>
+        <script src="http://d3plus.org/js/topojson.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="http://d3js.org/queue.v1.min.js"></script>
+        <script src="http://d3js.org/topojson.v1.min.js"></script>
+        <script src="./datamaps.world.min.js"></script>
+        <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+        <script src="./map.js"></script>
+        <script src="./bubble.js"></script>
+        <script>
+        </script>
    </body>
    </html>
