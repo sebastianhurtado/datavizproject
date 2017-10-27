@@ -1,0 +1,95 @@
+<!doctype html>
+<meta charset="utf-8">
+<html>
+     <head>
+        <title>Sebastián Hurtado</title>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./stylesheet.css">
+    </head>
+    <body>
+        <div class="page">
+          <!-- Update the section below to add your own personal information -->
+          <h1 class="center">Sebastián Hurtado</h1>
+          <h4>MALD Candidate | The Fletcher School - Tufts University | Applied Data Visualization - MIT Media Lab </h3>
+          <div id="viz-container">
+              <div class="single_viz" id="map">
+                  <div class="text">
+                    Finding the money to search for ET - The Guardian Scraper Project
+                    <p>
+The three words selected for this project were funding, exoplanets and SETI, short for Search for Extraterrestrial Intelligence. The purpose of the project is to find out if the announcement of the discovery of exoplanets, has led to an increase in the publication of articles regarding the funding for the search for extraterrestrial intelligent ventures, between the period 1999-2017.
+ </p>
+                  </div>
+                      <img src="images/HUBBLE.jpg" width="520" height= "500"/>
+                    <div>
+                      <!-- Add a geometric shape and color it with your favorite color -->
+                    </div>
+              </div>
+
+              <hr/>
+
+              <div class="single_viz" id="bubble">
+                  <div class="text">
+                      Categories
+                      <div class="dropdown">
+                      <button class="dropbtn"><span id="cat">all</span> <span style='float: right;'>▼</span></button>
+                      <div class="dropdown-content">
+                          <a onclick="filter('Funding');">Funding</a>
+                          <a onclick="filter('Exoplanets');">Exoplanets</a>
+                          <a onclick="filter('SETI');">SETI</a>
+                          <a onclick="filter('Funding & SETI');">Funding & SETI</a>
+                          <a onclick="filter('Exoplanets & SETI');">Exoplanets & SETI</a>
+                          <a onclick="filter('Funding & Exoplanets');">Funding & Exoplanets</a>
+                          <a onclick="filter('Funding, Exoplanets & SETI');">Funding,Exoplanets & SETI</a>
+                          <a onclick="filter('all');">all</a>
+                        </div>
+                      </div>
+                  </div>
+                  <svg class="chart" id="svg_bubble"></svg>
+              </div>
+
+              <hr/>
+
+              <div class="single_viz" id="favorite">
+                  <div class="text">
+
+                  </div>
+                  <div class="allFavorites">
+                    <div class="favorites" id="favorites">
+                      <h4> Where is ET? </h4>
+                        <img src="images/ALIENS.jpg" width="170" height= "150"/>
+                      <div>
+                      </div>
+                    </div>
+                    <div class="favorites">
+                      <h4> SETI </h4>
+                        <img src="images/seti.jpg" width="230" height= "150"/>
+                    </div>
+                    <div class="favorites">
+                      <h4> Discovery </h4>
+                      <img src="images/Discovery.jpg" width="250" height= "150"/>
+                    </div>
+                    <div class="favorites">
+                      <h4> Exoplanets </h4>
+                        <img src="images/planets.jpg" width="250" height= "150"/>
+                    </div>
+                  </div>
+                </div>
+
+                <hr/>
+
+
+        <script src="http://d3plus.org/js/d3.js"></script>
+        <script src="http://d3plus.org/js/d3plus.js"></script>
+        <script src="http://d3plus.org/js/topojson.js"></script>
+        <script src="http://d3js.org/d3.v3.min.js"></script>
+        <script src="http://d3js.org/queue.v1.min.js"></script>
+        <script src="http://d3js.org/topojson.v1.min.js"></script>
+        <script src="./datamaps.world.min.js"></script>
+        <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+        <script src="./map.js"></script>
+        <script src="./bubble.js"></script>
+        <script>
+
+        </script>
+    </body>
+</html>
