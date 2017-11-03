@@ -13,7 +13,6 @@ var tooltip = d3.select("body")
     .style("visibility", "hidden")
     .style("font", "30px PT Calibri")
     .text("tooltip");
-
 var habbits = [
     {category: "Funding", alt: "Funding - 100,291 entries", value: 2.0},
     {category: "SETI", alt: "SETI - 214 entries", value: 0.5},
@@ -42,13 +41,11 @@ node.append("circle")
     .on("mouseout", function(){
         return tooltip.style("visibility", "hidden");
     });
-
 node.append("text")
     .attr("dy", ".3em")
     .style("text-anchor", "middle")
     .style("pointer-events", "none")
     .text(function(d) { return d.name; });
-
 function filter(category){
     d3.select(".dropbtn").select("#cat").text(category);
     switch(category){
