@@ -11,7 +11,7 @@ var tooltip = d3.select("body")
     .style("position", "absolute")
     .style("z-index", "1")
     .style("visibility", "hidden")
-    .style("font", "30px PT Calibri")
+    .style("font", "10px PT Calibri")
     .text("tooltip");
 
 var habbits = [
