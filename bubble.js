@@ -15,14 +15,6 @@ var tooltip = d3.select("body")
     .text("tooltip");
 
 var habbits = [
-    {category: "Other Taylor", alt: "?", value: 0.1},
-    {category: "Other Taylor", alt: "?", value: 0.1},
-    {category: "Other Taylor", alt: "?", value: 0.1},
-    {category: "Other Taylor", alt: "?", value: 0.1},
-    {category: "Other Taylor", alt: "?", value: 0.1},
-    {category: "Other Taylor", alt: "?", value: 0.1},
-    {category: "Other Taylor", alt: "?", value: 0.1},
-    {category: "Other Taylor", alt: "?", value: 0.1},
     {category: "Funding", alt: "Funding - 100,291 entries", value: 2.0},
     {category: "SETI", alt: "SETI - 214 entries", value: 0.5},
     {category: "Exoplanets", alt: "Exoplanets - 112 entries", value: 0.1},
@@ -42,13 +34,13 @@ node.append("circle")
     .style("fill", function(d) { return color(d.category); })
     .on("mouseover", function(d) {
             tooltip.text(d.alt);
-            tooltip.style("visibility", "visible");
+            tooltip.style("visibility", "hidden");
     })
     .on("mousemove", function() {
         return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
     })
     .on("mouseout", function(){
-        return tooltip.style("visibility", "hidden");
+        return tooltip.style("visibility", "visible");
     });
 
 node.append("text")
