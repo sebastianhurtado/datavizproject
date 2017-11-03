@@ -34,13 +34,13 @@ node.append("circle")
     .style("fill", function(d) { return color(d.category); })
     .on("mouseover", function(d) {
             tooltip.text(d.alt);
-            tooltip.style("visibility", "hidden");
+            tooltip.style("visibility", "visible");
     })
     .on("mousemove", function() {
         return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
     })
     .on("mouseout", function(){
-        return tooltip.style("visibility", "visible");
+        return tooltip.style("visibility", "hidden");
     });
 
 node.append("text")
@@ -48,6 +48,30 @@ node.append("text")
     .style("text-anchor", "middle")
     .style("pointer-events", "none")
     .text(function(d) { return d.name; });
+
+var legend = d3.select("#bubble").append("svg").attr("id", "legend");
+legend.append("rect").attr("id", "legend1")
+    .attr("x", "120").attr("y", "10").attr("width", "20").attr("height", "20").attr("fill", color("Funding"));
+legend.append("text").attr("x", "145").attr("y", "24").attr("font-size", "12px").text("Funding");
+legend.append("rect").attr("id", "legend2")
+    .attr("x", "250").attr("y", "10").attr("width", "20").attr("height", "20").attr("fill", color("SETI"));
+legend.append("text").attr("x", "275").attr("y", "24").attr("font-size", "12px").text("SETI");
+legend.append("rect").attr("id", "legend3")
+    .attr("x", "370").attr("y", "10").attr("width", "20").attr("height", "20").attr("fill", color("Exoplanets"));
+legend.append("text").attr("x", "395").attr("y", "24").attr("font-size", "12px").text("Exoplanets");
+legend.append("rect").attr("id", "legend4")
+    .attr("x", "500").attr("y", "10").attr("width", "20").attr("height", "20").attr("fill", color("Funding & SETI"));
+legend.append("text").attr("x", "505").attr("y", "24").attr("font-size", "12px").text("Funding & SETI");
+legend.append("rect").attr("id", "legend5")
+    .attr("x", "630").attr("y", "10").attr("width", "20").attr("height", "20").attr("fill", color("Funding & Exoplanets"));
+legend.append("text").attr("x", "605").attr("y", "24").attr("font-size", "12px").text("Funding & Exoplanets");
+legend.append("rect").attr("id", "legend6")
+    .attr("x", "760").attr("y", "10").attr("width", "20").attr("height", "20").attr("fill", color("Exoplanets & SETI"));
+legend.append("text").attr("x", "695").attr("y", "24").attr("font-size", "12px").text("Exoplanets & SETI");
+legend.append("rect").attr("id", "legend7")
+    .attr("x", "890").attr("y", "10").attr("width", "20").attr("height", "20").attr("fill", color("Funding, Exoplanets & SETI"));
+legend.append("text").attr("x", "775").attr("y", "24").attr("font-size", "12px").text("Funding, Exoplanets & SETI");
+
 
 function filter(category){
     d3.select(".dropbtn").select("#cat").text(category);
