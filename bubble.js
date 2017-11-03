@@ -1,5 +1,5 @@
 var diameter = 420;
-var colors = ['#2AA4A9', '#57B28D','#FBAE4B', '#F16045','#6f9364', '#efcbdb', '#7082c1', '#000000'];
+var colors = ['#2AA4A9', '#57B28D','#FBAE4B', '#F16045','#6f9364', '#efcbdb', '#7082c1'];
 var color = d3.scale.category10().range(colors);
 var bubble = d3.layout.pack()
     .sort(null)
@@ -22,7 +22,6 @@ var habbits = [
     {category: "Funding & Exoplanets", alt: "Funding & Exoplanets - 9 entries", value: 0.05},
     {category: "Exoplanets & SETI", alt: "Exoplanets & SETI - 8 entries", value: 0.05},
     {category: "Funding, Exoplanets & SETI", alt: "Funding,Exoplanets & SETI - ????", value: 0.05},
-    {category: "?", alt: "?", value: 0.04},
 ];
 
 var node = svg.selectAll(".node")
@@ -41,7 +40,7 @@ node.append("circle")
         return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
     })
     .on("mouseout", function(){
-        return tooltip.style("visibility", "visible");
+        return tooltip.style("visibility", "hidden");
     });
 
 node.append("text")
