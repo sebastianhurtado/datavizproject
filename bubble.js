@@ -15,7 +15,7 @@ var tooltip = d3.select("body")
     .text("tooltip");
 
 var habbits = [
-    {category: "Funding", alt: "Funding - 100,291 entries", value: 2.0},
+    {category: "Funding", alt: "Funding - 100,291 entries", value: 2.5},
     {category: "SETI", alt: "SETI - 214 entries", value: 0.4},
     {category: "Exoplanets", alt: "Exoplanets - 112 entries", value: 0.2},
     {category: "Funding & SETI", alt: "Funding & SETI - 13 entries", value: 0.05},
