@@ -22,7 +22,7 @@ var habbits = [
     {category: "Funding & Exoplanets", alt: "Funding & Exoplanets - 9 entries", value: 0.05},
     {category: "Exoplanets & SETI", alt: "Exoplanets & SETI - 8 entries", value: 0.05},
     {category: "Funding, Exoplanets & SETI", alt: "Funding,Exoplanets & SETI - ????", value: 0.05},
-    {category: "?", alt: "?", value: 0.001},
+    {category: "?", alt: "?", value: 0.04},
 ];
 
 var node = svg.selectAll(".node")
