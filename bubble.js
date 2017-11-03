@@ -67,10 +67,10 @@ legend.append("rect").attr("id", "legend5")
 legend.append("text").attr("x", "655").attr("y", "24").attr("font-size", "12px").text("Funding & Exoplanets");
 legend.append("rect").attr("id", "legend6")
     .attr("x", "180").attr("y", "50").attr("width", "20").attr("height", "20").attr("fill", color("Exoplanets & SETI"));
-legend.append("text").attr("x", "210").attr("y", "54").attr("font-size", "12px").text("Exoplanets & SETI");
+legend.append("text").attr("x", "210").attr("y", "60").attr("font-size", "12px").text("Exoplanets & SETI");
 legend.append("rect").attr("id", "legend7")
     .attr("x", "560").attr("y", "50").attr("width", "20").attr("height", "20").attr("fill", color("Funding, Exoplanets & SETI"));
-legend.append("text").attr("x", "590").attr("y", "54").attr("font-size", "12px").text("Funding, Exoplanets & SETI");
+legend.append("text").attr("x", "590").attr("y", "60").attr("font-size", "12px").text("Funding, Exoplanets & SETI");
 
 function filter(category){
     d3.select(".dropbtn").select("#cat").text(category);
