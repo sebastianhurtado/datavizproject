@@ -9,7 +9,7 @@ var svg = d3.select("body").select("#svg_bubble");
 var tooltip = d3.select("body")
     .append("div")
     .style("position", "absolute")
-    .style("z-index", "1")
+    .style("z-index", "10")
     .style("visibility", "hidden")
     .style("font", "10px PT Calibri")
     .text("tooltip");
