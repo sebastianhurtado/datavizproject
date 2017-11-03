@@ -146,3 +146,14 @@ hr{
     margin-top: 5px;
 }
 .button:hover {background-color: #3e8e41}
+
+.chartt rect {
+  fill: rgba(204, 153, 255, 1);
+}
+
+.chartt text {
+  fill: black;
+  font: 20px sans-serif;
+  font-weight: 900;
+  text-anchor: middle;
+}
