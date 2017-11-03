@@ -34,7 +34,7 @@ node.append("circle")
     .style("fill", function(d) { return color(d.category); })
     .on("mouseover", function(d) {
             tooltip.text(d.alt);
-            tooltip.style("visibility", "visible");
+            tooltip.style("visibility", "hidden");
     })
     .on("mousemove", function() {
         return tooltip.style("top", (d3.event.pageY-10)+"px").style("left",(d3.event.pageX+10)+"px");
