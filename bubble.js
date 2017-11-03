@@ -16,12 +16,12 @@ var tooltip = d3.select("body")
 
 var habbits = [
     {category: "Funding", alt: "Funding - 100,291 entries", value: 2.0},
-    {category: "SETI", alt: "SETI - 214 entries", value: 0.5},
-    {category: "Exoplanets", alt: "Exoplanets - 112 entries", value: 0.1},
-    {category: "Funding & SETI", alt: "Funding & SETI - 13 entries", value: 0.08},
-    {category: "Funding & Exoplanets", alt: "Funding & Exoplanets - 9 entries", value: 0.05},
-    {category: "Exoplanets & SETI", alt: "Exoplanets & SETI - 8 entries", value: 0.05},
-    {category: "Funding, Exoplanets & SETI", alt: "Funding,Exoplanets & SETI - ????", value: 0.05},
+    {category: "SETI", alt: "SETI - 214 entries", value: 0.4},
+    {category: "Exoplanets", alt: "Exoplanets - 112 entries", value: 0.3},
+    {category: "Funding & SETI", alt: "Funding & SETI - 13 entries", value: 0.05},
+    {category: "Funding & Exoplanets", alt: "Funding & Exoplanets - 9 entries", value: 0.03},
+    {category: "Exoplanets & SETI", alt: "Exoplanets & SETI - 8 entries", value: 0.03},
+    {category: "Funding, Exoplanets & SETI", alt: "Funding,Exoplanets & SETI - ????", value: 0.01},
 ];
 
 var node = svg.selectAll(".node")
