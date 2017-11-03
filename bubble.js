@@ -66,10 +66,10 @@ legend.append("rect").attr("id", "legend5")
     .attr("x", "630").attr("y", "10").attr("width", "20").attr("height", "20").attr("fill", color("Funding & Exoplanets"));
 legend.append("text").attr("x", "605").attr("y", "24").attr("font-size", "12px").text("Funding & Exoplanets");
 legend.append("rect").attr("id", "legend6")
-    .attr("x", "120").attr("y", "20").attr("width", "20").attr("height", "20").attr("fill", color("Exoplanets & SETI"));
+    .attr("x", "180").attr("y", "50").attr("width", "20").attr("height", "20").attr("fill", color("Exoplanets & SETI"));
 legend.append("text").attr("x", "695").attr("y", "24").attr("font-size", "12px").text("Exoplanets & SETI");
 legend.append("rect").attr("id", "legend7")
-    .attr("x", "370").attr("y", "20").attr("width", "20").attr("height", "20").attr("fill", color("Funding, Exoplanets & SETI"));
+    .attr("x", "310").attr("y", "50").attr("width", "20").attr("height", "20").attr("fill", color("Funding, Exoplanets & SETI"));
 legend.append("text").attr("x", "775").attr("y", "24").attr("font-size", "12px").text("Funding, Exoplanets & SETI");
 
 
