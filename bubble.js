@@ -15,6 +15,14 @@ var tooltip = d3.select("body")
     .text("tooltip");
 
 var habbits = [
+    {category: "Other Taylor", alt: "?", value: 0.1},
+    {category: "Other Taylor", alt: "?", value: 0.1},
+    {category: "Other Taylor", alt: "?", value: 0.1},
+    {category: "Other Taylor", alt: "?", value: 0.1},
+    {category: "Other Taylor", alt: "?", value: 0.1},
+    {category: "Other Taylor", alt: "?", value: 0.1},
+    {category: "Other Taylor", alt: "?", value: 0.1},
+    {category: "Other Taylor", alt: "?", value: 0.1},
     {category: "Funding", alt: "Funding - 100,291 entries", value: 2.0},
     {category: "SETI", alt: "SETI - 214 entries", value: 0.5},
     {category: "Exoplanets", alt: "Exoplanets - 112 entries", value: 0.1},
