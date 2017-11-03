@@ -17,7 +17,7 @@ var tooltip = d3.select("body")
 var habbits = [
     {category: "Funding", alt: "Funding - 100,291 entries", value: 2.0},
     {category: "SETI", alt: "SETI - 214 entries", value: 0.4},
-    {category: "Exoplanets", alt: "Exoplanets - 112 entries", value: 0.3},
+    {category: "Exoplanets", alt: "Exoplanets - 112 entries", value: 0.2},
     {category: "Funding & SETI", alt: "Funding & SETI - 13 entries", value: 0.05},
     {category: "Funding & Exoplanets", alt: "Funding & Exoplanets - 9 entries", value: 0.03},
     {category: "Exoplanets & SETI", alt: "Exoplanets & SETI - 8 entries", value: 0.03},
@@ -67,10 +67,10 @@ legend.append("rect").attr("id", "legend5")
 legend.append("text").attr("x", "655").attr("y", "24").attr("font-size", "12px").text("Funding & Exoplanets");
 legend.append("rect").attr("id", "legend6")
     .attr("x", "180").attr("y", "50").attr("width", "20").attr("height", "20").attr("fill", color("Exoplanets & SETI"));
-legend.append("text").attr("x", "205").attr("y", "24").attr("font-size", "12px").text("Exoplanets & SETI");
+legend.append("text").attr("x", "210").attr("y", "54").attr("font-size", "12px").text("Exoplanets & SETI");
 legend.append("rect").attr("id", "legend7")
     .attr("x", "560").attr("y", "50").attr("width", "20").attr("height", "20").attr("fill", color("Funding, Exoplanets & SETI"));
-legend.append("text").attr("x", "585").attr("y", "24").attr("font-size", "12px").text("Funding, Exoplanets & SETI");
+legend.append("text").attr("x", "590").attr("y", "54").attr("font-size", "12px").text("Funding, Exoplanets & SETI");
 
 function filter(category){
     d3.select(".dropbtn").select("#cat").text(category);
