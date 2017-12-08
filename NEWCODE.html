@@ -1,0 +1,778 @@
+<!doctype html>
+<meta charset="utf-8">
+
+<html>
+<head>
+    <title>Digital Five</title>
+<style>
+
+  .treemapboxes {
+    /*display: inline-block; */
+    /*background: #009; */
+    width: 32.55vw;
+    height: 32.55vw;
+    }
+
+  .treemapboxesouter {
+    display: inline-block;
+    /*background: #333; */
+    width: 33%
+    }
+
+  .indicatorlistsection {
+    margin: auto;
+    padding-left:140px
+  }
+
+  .indicatorlistPEOPLE {
+    background: white;
+    border-left: 2px solid red;
+    border-top: 2px solid red;
+    padding-left: 8px;
+    width: 1000px
+  }
+
+  .indicatorlistECON {
+    background: white;
+    border-left: 2px solid green;
+    border-top: 2px solid green;
+    padding-left: 8px;
+    margin-top: 20px;
+    width: 1000px
+  }
+
+  .indicatorlistINST {
+    background: white;
+    border-left: 2px solid purple;
+    border-top: 2px solid purple;
+    padding-left: 8px;
+    margin-top: 20px;
+    width: 1000px
+  }
+
+  .single_viz{
+    margin-bottom: 150px;
+    height: 400px;
+    width: 100%;
+    padding-top: 0px;
+    padding-bottom: 200px;
+    /*background-color: black; */
+    }
+
+  .IBGC {
+    background: navy
+  }
+
+  #barplotsection {
+    padding-right: 100px
+  }
+
+  .baroutter {
+    background-color: white;
+    width: 95%;
+    margin-top: 70px;
+  }
+  .barchart{
+    margin: auto;
+    /*width: 100%; */
+  }
+
+  .chart text {
+    fill: black;
+    font: 10px sans-serif;
+    text-anchor: end;
+  }
+  h4{
+    transform: rotate(90deg);
+  }
+
+  /* Dropdown Button */
+  .dropbtn {
+  background-color: #531C11;
+  color: white;
+  padding: 10px;
+  font-size: 15px;
+  width: 120px;
+  border: none;
+  cursor: pointer;
+  /*margin-top: 10px; */
+  margin: auto;
+  }
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+      float: right
+  }
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  }
+  /* Links inside the dropdown */
+  .dropdown-content a {
+  color: black;
+  padding: 10px 10px;
+  font-size: 12px;
+  text-decoration: none;
+  display: block;
+  }
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {background-color: #816C68}
+
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+  display: block;
+  }
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+  background-color: #816C68;
+  }
+
+  #nep {
+  background-color: black;
+  }
+
+  h1{text-align: center;}
+  h3{text-align: center;}
+
+</style>
+</head>
+
+<body>
+
+<h1 class="center">Digital Five: comparitive analysis of digital integration</h1>
+<h3>Estonia | Israel | New Zealand | South Korea | United Kingdom </h3>
+<br></br>
+<br></br>
+<br></br>
+<div class="single_viz" id="treemapsection">
+  <div class="treemapboxesouter" id="treemapboxesouter">
+    <h1>People </h1>
+    <div id="treemapboxpeople" class="treemapboxes"></div>
+  </div>
+
+  <div class="treemapboxesouter" id="treemapboxesouter">
+    <h1> Economy </h1>
+    <div id="treemapboxeconomy" class="treemapboxes"></div>
+  </div>
+
+  <div class="treemapboxesouter" id="treemapboxesouter">
+    <h1> Institutions </h1>
+    <div id="treemapboxinstitutions" class="treemapboxes"></div>
+  </div>
+</div>
+
+<div class="single_viz" id="barplotsection">
+  <h1>Proximity to Benchmarks</h1>
+  <div class="baroutter">
+      <svg id="ESTbar" class="barchart"></svg>
+      <svg id=#benchmark width="10" height=280>
+          <rect x="0" y="0" height="80" width="6" fill="MediumSeaGreen" />
+          <rect x="0" y="100" height="80" width="6" fill="SlateBlue" />
+          <rect x="0" y="200" height="80" width="6" fill="firebrick" />
+      </svg>
+      <div class="dropdown">
+        <button class="dropbtn">Countries</button>
+        <div class="dropdown-content">
+            <a onclick="drawChart(0);">Estonia</a>
+            <a onclick="drawChart(1);">Israel</a>
+            <a onclick="drawChart(2);">South Korea</a>
+            <a onclick="drawChart(3);">United Kingdom</a>
+            <a onclick="drawChart(4);">New Zealand</a>
+        </div>
+      </div>
+  </div>
+</div>
+
+<div class="single_viz" id="indicatorlistsection">
+  <div class="indicatorlistsection">
+  <div class="indicatorlistPEOPLE">
+      <h2 class="center"> People </h2>
+      <div id="text">
+      <font size="6">Environment & Quality of Life</font>
+      <strong><br>Air, Water, and Sanitation Quality</strong>
+      <br>Age-standardized mortality rate attributed to household and ambient air pollution (per 100,000 population) (numeric) | WHO
+      <br>Air Quality PM10 Annual mean, ug/m3 | WHO
+      <br>Population using improved drinking-water sources (%) | WHO
+      <br>Population using improved sanitation facilities (%) | WHO
+      <br>Environmental Policies | Sustainable Governance Indicators
+      <br>Global Environmental Protection Policies | Sustainable Governance Indicators
+      <br>Open Data - Impact of OD on Environmental Sustainability | Open Data Barometer
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Health</strong>
+      <br>Life Expectancy of the general population | UN Population Division
+      <br>Infant Survival Rate | OECD
+      <br>Health care coverage | OECD
+      <br>Survival rates heart attack | OECD
+      <br>Survival rates following stroke | OECD
+      <br>Lower Suicide Rate | WHO
+      <br>Mitigating the impact of alcohol on health | OECD
+      <br>Liver Health, females | OECD
+      <br>Liver Health, males | OECD
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Work-Life Balance</strong>
+      <br>Employees not working very long hours | OECD Employment Outlook, Swiss Federal Statistics Office/Better Life Index
+      <br>Workers not working 60+ hours per week in their main job | OECD Employment database
+      <br>Time devoted to leisure and personal care | OECD Employment Outlook, Swiss Federal Statistics Office/Better Life Index
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Transportation</strong>
+      <br>Infrastructure Investment | OECD
+      <br>Road traffic safety females | OECD
+      <br>Road traffic safety males | OECD
+      <br>Open Data - Public transport timetables available | OECD
+      <br>Time efficiency of commute | OECD
+      <hr style="height:.000002px; visibility: hidden;" />
+      <font size="6">Inclusivity</font>
+      <br><strong>Labor Market Inclusion</strong>
+      <br>Gender gap in employment rates and full time equivalent | OECD
+      <br>Gender gap in median earnings | OECD
+      <br>Women in labor force, ratio to men | OECD
+      <br>Employment Rate - Ratio of Foreign Born to Native Born | Sustainable Governance Indicators
+      <br>Unemployment Rate - Ratio of Foreign Born to Native Born | Sustainable Governance Indicators
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Economic Mobility</strong>
+      <br>GINI Coefficient | World Bank
+      <br>Human Development Index | UNPD
+      <br>Middle Class Households (% of Total)	| Euromonitor
+      <br>Availability of affordable housing  | Gallup
+      <br>Ability to work hard and get ahead | Gallup
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Diversity and Acceptance</strong>
+      <br>Proportion of seats held by women in national parliaments (%)| World Bank
+      <br>Tolerance for immigrants | Gallup
+      <br>Tolerance for racial and ethnic minorities | Gallup
+      <br>Tolerance for gay or lesbian people | Gallup
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Inclusive Policies</strong>
+      <i><br>Policies Supporting Working Families</i>
+      <br>Maternity specific leave (weeks) | ILO
+      <br>Total Paid Leave Available to Mothers, full rate equivalent in weeks | OECD
+      <br>Paternal specific leave (weeks) | ILO
+      <br>Paid Paternity Leave, Full-Rate Equivalent in weeks | OECD
+      <br>Parental Leave (weeks) | OECD
+      <i><br>Policies Supporting Integration of Marginalized Groups</i>
+      <br>Social Policies - Integration | Sustainable Governance Indicators
+      <br>Open Data - Impact of OD on inclusion of marginalized groups | Open Data Barometer
+      <hr style="height:.000002px; visibility: hidden;" />
+      <font size="6">State of Talent and the Human Condition </font>
+      <br><strong>Current Vitals of the Society</strong>
+      <br>% of total population by broad age group, both sexes (per 100 total population) (age 0-24) | UNPD
+      <br>Child dependency ratio (ratio of population aged 0-19 per 100 population 20-64), 2030 projections | UNPD
+      <br>Median age of the total population (years) | UNPD
+      <br>Fertility Rates | OECD
+      <br>Old-age dependency ratio (ratio of population aged 65+ per 100 population 20-64), 2030 projections | UNPD
+      <br>Robustness of employment in mature population: share of 55-64 year-olds in employment (%)| OECD
+      <br>Unemployment (% of total labor force) | World Bank, ILO
+      <br>Labor Force Participation Rate | OECD
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Availability of Talent</strong>
+      <i><br>Foundational Skills</i>
+      <br>Proficiency in literacy | OECD - PIAAC
+      <br>Proficiency in numeracy | OECD - PIAAC
+
+      <i><br>Basic Technology Skills</i>
+      <br>How recently did people start using a smartphone? More than 12 months | Google Barometer
+      <br>How recently did people start using a tablet? More than 12 months | Google Barometer
+      <br>% of individuals using a computer | ITU
+      <br>Mobile-cellular telephone subscriptions per 100 inhabitants | ITU
+      <br>% of Individuals Using the Internet | ITU
+      <br>Smartphone Adoption Rate | GSMA
+
+      <i><br>Advanced Technology Skills</i>
+      <br>% of adults with good problem solving in technology rich environments | OECD - PIAAC
+      <br>% of adults with very good problem solving in technology rich environments | OECD - PIAAC
+      <br>Availability of scientists and engineers | World Economic Forum
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Retaining Talent</strong>
+      <br>Country capacity to retain talent | World Economic Forum
+      <br>High Skilled Visa - Renewal Possible | Fletcher
+      <br>High Skilled Visa - Renewal Length (years) | Fletcher
+      <br>Investor Visa - Renewal Possible | Fletcher
+      <br>Investor Visa Renewal Length | Fletcher
+      <br>Entrepreneur Visa Renewal possible | Fletcher
+      <br>Entrepreneur Visa Renewal Length | Fletcher
+      <hr style="height:.000002px; visibility: hidden;" />
+      <font size="6">Talent Development</font>
+      <br><strong>Train - Participation in Training and Education</strong>
+      <i><br>Adult Education</i>
+      <br>Availability of research and training services	World Economic Forum
+      <br>Extent of staff training | OECD
+      <br>Tertiary education attainment rate, 25-54 age group | OECD
+      <br>Open Data - Training around Open Data | Open Data Barometer
+      <br>HarvardX registrants | HarvardX
+      <br>HarvardX registrants (share of world enrollment) | HarvardX
+
+      <i><br>Child Education</i>
+      <br>Pupil-teacher ratio, secondary |UNESCO
+      <br>Gov't expend. on pupil (% of GDP), primary education | UNESCO
+      <br>Gov't expend. on pupil (% of GDP), secondary education | UNESCO
+
+      <i><br>Skills Matching</i>
+      <br>Hiring and firing practices | World Economic Forum
+      <br>Ease of finding skilled employees | World Economic Forum
+      <br>% of Unemployed not in Long Term Unemployment Rate | OECD
+      <br>Policy Measures to Address Unemployment | Sustainable Governance Indicators
+      <br>Number of New Companies looking for Digital Freelancers | Toptal
+      <br>Number of Freelancers applied to join Toptal | Toptal
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Attract</strong>
+      <i><br>Ease of Inward Talent Migration</i>
+      <br>Country capacity to attract talent, 1-7 (best) | World Economic Forum
+      <br>Inbound mobility in tertiary education | UNESCO
+      <br>Outbound mobility ratio, all regions, both sexes | UNESCO
+      <br>Net migration rate (per 1,000 population) | UNPD
+
+      <i><br>Openness to High Skilled Migrants</i>
+      <br>Investor Visa Length | Fletcher
+      <br>Minimum Investment Required | Fletcher
+      <br>High Skilled Visa - Length (years) | Fletcher
+      <br>eResidency Available | Fletcher
+      <br>Entrepreneur Visa Length | Fletcher
+
+      <i><br>Acquiring Learning from Abroad</i>
+      <br>Outbound mobility ratio (%) of Tertiary educational enrollment | World Bank
+
+
+
+    </div>
+  </div>
+
+  <div class="indicatorlistECON">
+      <h2> Economy </h2>
+      <div id="text">
+        <font size="6">Connectedness</font>
+      <strong><br>Mobility of Data</strong>
+      <i><br>Bandwidth</i>
+      <br>Average bandwidth connection peak speed in kilobytes per second (Fixed Broadband) | Akamai
+      <br>Average bandwidth connection peak speed in kilobytes per second (Mobile) | Akamai
+      <br>Average bandwidth connection speed in kilobytes per second (Fixed Broadband) | Akamai
+      <br>Average bandwidth connection speed in kilobytes per second (Mobile) | Akamai
+      <br>International Internet bandwidth (bit/s) per Internet user | ITU
+
+      <i><br>Content flow</i>
+      <br>Balance of Payment Charges for the use of intellectual property | IMF
+      <br>Average Amount of Data Consumed per Device via Mobile Network | Akamai
+      <br>Average Amount of Data Consumed per Device via Fixed Broadband Network | Akamai
+
+      <i><br>Frictionlessness of data flows	</i>
+      <br>Page Responsiveness | Blue Triangle
+      <br>Open Data - Common standards | Open Data Barometer
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Mobility of Goods and Services</strong>
+      <i><br>Exports</i>
+      <br>Value of exports, free on board | IMF DOTS
+      <br>Goods, Value of Exports, Free on board (FOB), Global trade share (%)| IMF DOTS
+      <br>Value Added by Activity - Business Services | OECD
+      <br>Value Added by Activity - Manufacturing | OECD
+
+      <i><br>Imports</i>
+      <br>Goods, Value of Imports, Cost, Insurance, Freight (CIF), Millions of US Dollars | IMF DOTS
+      <br>Goods, Value of Imports, Cost, Insurance, Freight (CIF), Global trade share (%)| IMF DOTS
+
+      <i><br>ICT Specific Trade</i>
+      <br>Value Added by Activity - Information, Communication | OECD
+      <br>High-technology exports | World Bank
+      <br>High-technology exports, in absolute amount | World Bank
+
+      <i><br>Frictionlessness of trade flows</i>
+      <br>Low Amount of Time to Export Goods | World Bank
+      <br>Low Amount of Time to Import Goods | World Bank
+      <br>Prevalence of trade barriers | OECD
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Mobility of Financial flows</strong>
+      <i><br>FDI Flows</i>
+      <br>FDI inward stock as a % of GDP | UNCTAD
+      <br>FDI outward stock as a % of GDP | UNCTAD
+      <br>FDI inflows as a % of gross fixed capital formation | UNCTAD
+      <br>FDI outflows as a % of gross fixed capital formation | UNCTAD
+      <br>FDI outward stock, by region and economy world share | UNCTAD
+      <br>FDI inflows, by region and economy world share | UNCTAD
+
+      <i><br>Frictionlessness of financial flows</i>
+      <br>Government Regulation and International Financial Markets | Sustainable Governance Indicators
+      <hr style="height:.000002px; visibility: hidden;" />
+      <font size="6">Economic Robustness</font>
+      <strong><br>Economic Productivity</strong>
+      <br>Productivity - GDP per person employed | OECD
+      <br>Productivity - GDP per hour worked | OECD
+      <br>Annual growth/change in productivity and Unit Labor Cost (ULC) by the Information, <br>Communications Industry | OECD
+      <br>Open Data - Impact of OD on Economy | Open Data Barometer
+      <br>Control of Corporate Corruption | Gallup
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Economic Diversification</strong>
+      <br>Economic Complexity Index Score | MIT's Atlas of Economic Complexity
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Economic Stability</strong>
+      <br>BOP: Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Equity and Investment Fund Shares (millions of US dollars) | IMF Balance of Payments and International Investment Position Statistics (BOP/IIP)
+      <br>BOP: Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Debt Securities, (millions of US dollars) | IMF Balance of Payments and International Investment Position Statistics (BOP/IIP)
+      <br>BOP: Supplementary Items, Portfolio Investment, Net Incurrence of Liabilities, Equity Securities (Excluding Exceptional Financing), (millions of US dollars) | IMF Balance of Payments and International Investment Position Statistics (BOP/IIP)
+      <br>BOP: Supplementary Items, Portfolio Investment, Net Incurrence of Liabilities, Debt Securities (Excluding Exceptional Financing), (millions of US dollars) | IMF Balance of Payments and International Investment Position Statistics (BOP/IIP)
+      <br>BOP: Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Equity and Investment Fund Shares (millions of US dollars) world share | IMF Balance of Payments and International Investment Position Statistics (BOP/IIP)
+      <br>BOP: Financial Account, Portfolio Investment, Net Acquisition of Financial Assets, Debt Securities, (millions of US dollars) world share | IMF Balance of Payments and International Investment Position Statistics (BOP/IIP)
+      <br>BOP: Supplementary Items, Portfolio Investment, Net Incurrence of Liabilities, Equity Securities (Excluding Exceptional Financing), (millions of US dollars) world share | IMF Balance of Payments and International Investment Position Statistics (BOP/IIP)
+      <br>BOP: Supplementary Items, Portfolio Investment, Net Incurrence of Liabilities, Debt Securities (Excluding Exceptional Financing), (millions of US dollars) world share | IMF Balance of Payments and International Investment Position Statistics (BOP/IIP)
+      <hr style="height:.000002px; visibility: hidden;" />
+      <font size="6">Entrepreneurship</font>
+      <strong><br>Funding for New Businesses</strong>
+      <br>Ease of Access to Loans | World Economic Forum
+      <br>Access to money to start a business, women |	OECD
+      <br>Access to money to start a business, men | OECD
+      <br>Investment in Technology fields | PCRI
+      <br>Investment in Technology fields | PCRI
+      <br>Venture Capital: Total Equity Invested (over 3 most recent years) | Thomson Reuters
+      <br>Venture Capital: Total Equity Invested in Rounds 1 & 2 (over 3 most recent years) | Thomson Reuters
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Ease of Starting New Ventures</strong>
+      <br>Access to training on how to start a business, women | OECD
+      <br>Access to training on how to start a business, men | OECD
+      <br>Ease of start-up procedures to register a business | World Bank
+      <br>Low cost of business start-up procedures (% of GNI per capita) | World Bank
+      <br>Low Amount of Time required to start business | World Bank
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Vibrancy of Start Up Environment</strong>
+      <br>Attitude towards entrepreneurial risk, women | OECD
+      <br>Attitude towards entrepreneurial risk, men | OECD
+      <br>New business density (new registrants per 1,000 people ages 15-64) | World Bank
+      <br>Self-employed with employees, women | OECD
+      <br>Self-employed with employees, men | OECD
+      <br>Unicorn count | Statista
+      <br>Open Data - Entrepreneur use | Open Data Barometer
+      <br>Venture Capital: Total Number of Deals (over 3 most recent years) | Thomson Reuters
+      <br>Venture Capital: Total Number of Deals in Rounds 1 & 2 (over 3 most recent years) | Thomson Reuters
+      <hr style="height:.000002px; visibility: hidden;" />
+      <font size="6">Innovation</font>
+      <strong><br>Innovation Readiness</strong>
+      <br>Domestic Adaptability | Sustainable Governance Indicators
+      <br>Capacity for Government Organizational Reform | Sustainable Governance Indicators
+      <br>Capacity for Innovation | World Economic Forum
+      <br>Researchers per million population, full-time equivalence | UNESCO
+      <br>% of manufacturing firms that cooperated with the Government or public research institutes | UNESCO
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Investment in Innovation</strong>
+      <br>Research and development expenditure (% of GDP) | World Economic Forum
+      <br>Company spending on R&D | World Economic Forum
+      <br>Research and Innovation Policy | Sustainable Governance Indicators
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Innovation Collaborations & Dissemination</strong>
+      <i><br>Current Innovation Collaborations & Dissemination</i>
+      <br>State of cluster development | World Economic Forum
+      <br>University-industry collaboration in R&D | World Economic Forum
+      <br>Open Data - Civil society and IT professionals engaged with government | Open Data Barometer
+      <br>Joint ventures/strategic alliance deals | Global Innovation Index 2017
+      <br>Scientific and technical publications (per billion PPP$ GDP) | Thomas Reuters, Web of Science, SCI and SSCI; International Monetary Fund, World Economic Outlook Database, 2015 (PPP$ GDP)
+      <br>Patent grant by technology | WIPO (World Intellectual Property Organization) IP Statistics Data Center
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Private Sector Collaboration</strong>
+      <br>% of manufacturing firms that cooperated with universities or other higher education institutions | UNESCO
+      <br>% of manufacturing firms that cooperated with suppliers of equipment, materials, components or software | UNESCO
+      <br>% of manufacturing firms that cooperated with clients or customers | UNESCO
+      <hr style="height:.000002px; visibility: hidden;" />
+      <strong>Uptake of new technology</strong>
+      <br>Gov’t procurement of advanced tech products | World Economic Forum
+      <br>Firm-level technology absorption | World Economic Forum
+      <br>Availability of latest technologies | World Economic Forum
+      <br>Value added by activity - Information, Communication | OECD
+</div>
+  </div>
+
+  <div class="indicatorlistINST">
+        <h2> Institutions </h2>
+        <div id="text">
+        <font size="6">Freedoms</font>
+        <strong><br>General Freedoms</strong>
+        <br>Political Stability and Absence of Violence/Terrorism | World Bank
+        <br>Freedom in the World | Freedom House
+        <br>Freedom in the World | Freedom House
+        <br>Freedom of the Press | Freedom House
+        <hr style="height:.000002px; visibility: hidden;" />
+        <strong>Online Freedoms</strong>
+        <br>Low Amount of Content Restrictions by Governments on Facebook | Facebook
+        <br>Low Number of Requests by Governments for Facebook User Data | Facebook
+        <br>Percentage Compliance by Facebook with Government Data Requests | Facebook
+        <br>Percentage Compliance by Google with Government Removal Requests | Google
+        <br>Low Number of Requests by Governments to Remove Content on Google | Google
+        <hr style="height:.000002px; visibility: hidden;" />
+        <font size="6">Trust</font>
+        <strong><br>Trust in Technology</strong>
+        <br>Trust in tech CEOs | Edelman
+        <br>Trust in tech industry | Edelman
+        <br>Trust in telecommunications industry | Edelman
+        <br>Use internet less due to privacy concerns | CIGI-IPSOS
+        <br>World is better due to science and tech | World Values Survey
+        <hr style="height:.000002px; visibility: hidden;" />
+        <strong>Government Accountability</strong>
+        <br>Voice and Accountability | World Bank
+        <br>Control of Corruption | World Bank
+        <br>Worries over government privacy invasion | World Values Survey
+        <br>Extent of Freedom of Information/Right to Information laws | Sustainable Governance Indicators
+        <br>Access to Government Information | Sustainable Governance Indicators
+        <br>Citizens voice their opinion to public official in last month | Sustainable Governance Indicators
+        <br>Open Data - Impact of OD on Country Transparency and Accountability | Open Data Barometer
+        <br>Confidence in Judicial System | Gallup
+        <br>Confidence in National Government | Gallup
+        <hr style="height:.000002px; visibility: hidden;" />
+        <font size="6">Safety & Security</font>
+        <strong><br>Physical Safety</strong>
+        <br>Low Number of Intentional homicide (rates per 100,000 population) | UNODC
+        <br>Low Number of Robbery at the national level, number of police-recorded offences | UNODC
+        <br>Low Number of Total Sexual Violence at the national level, number of police-recorded offences  | UNODC
+        <br>Confidence in Local Police | Gallup
+        <br>Safe Walking Alone | Gallup
+        <hr style="height:.000002px; visibility: hidden;" />
+        <strong>Cyber Protections</strong>
+        <i><br>Cyber Crime and Threats</i>
+        <br>Low Rate of Software Piracy, % software installed | World Economic Forum
+        <br>Low Malware Encounter Rate | Microsoft
+        <br>Low Rate of Computers Cleaned per Mile (CCM) | Microsoft
+        <br>Low Rate of Malicious Websites - drive-by download pages per 1,000 URLS | Microsoft
+        <br>Low Rate of Malicious Websites - Phishing sites per 1,000 internet hosts | Microsoft
+        <br>Low Rate of Malicious Websites - Malware hosting sites per 1,000 hosts | Microsoft
+
+        <i><br>Legal Protections and Resiliency Measures</i>
+        <br>Cybercrime legal protection | Web Index
+        <br>Legal framework for personal data protection | World Economic Forum
+        <br>Open Data - Legal protections of personal data | Open Data Barometer
+        <br>Investments in Enhanced Cyber Security | PCRI
+        <br>Use of a virtual data embassy | Fletcher
+        <hr style="height:.000002px; visibility: hidden;" />
+        <font size="6">Public Services</font>
+        <strong><br>Regulatory Regime</strong>
+        <br>Time required to do taxes | World Bank
+        <br>Tax rate | World Bank
+        <br>Government effectiveness | World Bank
+        <br>Regulatory quality | World Bank
+        <br>Time required to enforce a contract | World Bank
+        <hr style="height:.000002px; visibility: hidden;" />
+        <strong>Government Use of Digital</strong>
+        <i><br>Government Prioritization of ICT</i>
+        <br>Laws related to ICT | World Economic Forum
+        <br>Impact of ICTs on access to basic services | World Economic Forum
+        <br>Importance of ICTs to gov’t vision | World Economic Forum
+        <br>E-government Development Index: online service component | UN E-Government Survey 2016
+        <br>e-Participation Index | UNPACS
+        <br>Herfindahl-Hirschman Index (Market Concentration) | GSMA
+        <i><br>Government Support of Open Data</i>
+        <br>Open Data - Extent of City, Regional, and Local Open Data Initiatives | Open Data Barometer
+        <br>Government API Data Portal | Fletcher
+        <br>Open Data - Active Open Government Data Initiative | Open Data Barometer
+        <br>Open Data - Defined national open data policy | Open Data Barometer
+        <br>Open Data - Government Support of Open Data Innovation | Open Data Barometer
+
+          <i><br>e-ID in Public Services</i>
+          <br>e-ID is being used since (year) | World Bank
+          <br>Remote use of e-ID card | World Bank
+          <br>Use of private e-ID | Fletcher
+          <br>Comprehensive Electronic Health Record | Fletcher
+
+</div>
+</div>
+</div>
+
+<div>
+  <svg class="IBGC" width="100%" height="20"><h7 color="white">International Business in the Global Context | The Fletcher School of Law and Diplomacy</h7>
+  </svg>
+</div>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="../d3plus.v2.js"></script>
+<script>
+
+const economydata = [
+  {color: "DarkOliveGreen", parent: "Global Connectedness", id: "Mobility of Data", value: .083333333333333333333},
+  {color: "DarkOliveGreen", parent: "Global Connectedness", id: "Mobility of Goods and Services",  value: .083333333333333333333},
+  {color: "DarkOliveGreen", parent: "Global Connectedness", id: "Mobility of Financial Flows", value: .083333333333333333333},
+
+  {color: "OliveDrab", parent: "Economic Robustness", id: "Economic Productivity", value: .083333333333333333333},
+  {color: "OliveDrab", parent: "Economic Robustness", id: "Economic Diversification",  value: .083333333333333333333},
+  {color: "OliveDrab", parent: "Economic Robustness", id: "Economic Stability", value: .083333333333333333333},
+
+  {color: "MediumSeaGreen", parent: "Entrepreneurship", id: "Funding for New Businesses", value: .0625},
+  {color: "MediumSeaGreen", parent: "Entrepreneurship", id: "Ease of Starting New Ventures",  value: .0625},
+  {color: "MediumSeaGreen", parent: "Entrepreneurship", id: "Vibrancy of Start-Up Environment", value: .125},
+
+  {color: "Green", parent: "Innovation", id: "Innovation Readiness", value: .0625},
+  {color: "Green", parent: "Innovation", id: "Investment in Innovation", value: .0625},
+  {color: "Green", parent: "Innovation", id: "Innovation Collaboration & Dissemination", value: .0625},
+  {color: "Green", parent: "Innovation", id: "Uptake of New Technology", value: .0625},  ];
+
+const peopledata = [
+  {color: "DarkRed", parent: "Environment & QoL", id: "Air, Water and Sanitation Quality", value: .075},
+  {color: "DarkRed", parent: "Environment & QoL", id: "Health",  value: .075},
+  {color: "DarkRed", parent: "Environment & QoL", id: "Work Life Balance", value: .075},
+  {color: "DarkRed", parent: "Environment & QoL", id: "Transportation", value: .025},
+
+  {color: "firebrick", parent: "Inclusivity", id: "Labor Market Inclusivity", value: .0625},
+  {color: "firebrick", parent: "Inclusivity", id: "Economic Mobility",  value: .0625},
+  {color: "firebrick", parent: "Inclusivity", id: "Diversity and Acceptance", value: .0625},
+  {color: "firebrick", parent: "Inclusivity", id: "Inclusive Policies", value: .0625},
+
+  {color: "red", parent: "Talent Base", id: "Current Vitals of the Society", value: .0326},
+  {color: "red", parent: "Talent Base", id: "Retaining Talent",  value: .2174},
+  {color: "Salmon", parent: "Talent Development", id: "Retaining Talent", value: .125},
+  {color: "Salmon", parent: "Talent Development", id: "Talent Development", value: .125},  ];
+
+const institutionsdata = [
+  {color: "MediumPurple", parent: "Freedoms", id: "General Freedoms", value: .125},
+  {color: "MediumPurple", parent: "Freedoms", id: "Online Freedoms",  value: .125},
+
+  {color: "SlateBlue", parent: "Trust", id: "Trust in Technology", value: .125},
+  {color: "SlateBlue", parent: "Trust", id: "Government Accountability",  value: .125},
+
+  {color: "Indigo", parent: "Safety & Security", id: "Physical Safety", value: .083333333333333333333},
+  {color: "Indigo", parent: "Safety & Security", id: "Cyber Security",  value: .16666666666666666667},
+
+  {color: "Purple", parent: "Public Services", id: "Regulatory Regime", value: .083333333333333333333},
+  {color: "Purple", parent: "Public Services", id: "Government Use of Digital", value: .083333333333333333333},
+  {color: "Purple", parent: "Public Services", id: "e-ID in Public Services", value: .083333333333333333333},  ];
+
+  var data = [
+      [
+        {value:".65", color: "MediumSeaGreen", label: "Innovation"},
+        {value:".44", color: "MediumSeaGreen", label: "Entrepreneurship"},
+        {value:".35", color: "MediumSeaGreen", label: "Economic Robustness"},
+        {value:".44", color: "MediumSeaGreen", label: "Global Connectedness"},
+        {value:"2", color: "white",},
+        {value:".77", color: "SlateBlue", label: "Public Services"},
+        {value:".61", color: "SlateBlue", label: "Safety & Security"},
+        {value:".71", color: "SlateBlue", label: "Trust"},
+        {value:".92", color: "SlateBlue", label: "Freedoms"},
+        {value:"2", color: "white",},
+        {value:".58", color: "firebrick", label: "Talent Development"},
+        {value:".57", color: "firebrick", label: "Human Condition"},
+        {value:".64", color: "firebrick", label: "Inclusivity"},
+        {value:".75", color: "firebrick", label: "Environment & Quality of Life"}
+    ],
+    [
+      {value:".76", color: "MediumSeaGreen", label: "Innovation"},
+      {value:".60", color: "MediumSeaGreen", label: "Entrepreneurship"},
+      {value:".70", color: "MediumSeaGreen", label: "Economic Robustness"},
+      {value:".54", color: "MediumSeaGreen", label: "Global Connectedness"},
+      {value:"2", color: "white",},
+      {value:".46", color: "SlateBlue", label: "Public Services"},
+      {value:".38", color: "SlateBlue", label: "Safety & Security"},
+      {value:".59", color: "SlateBlue", label: "Trust"},
+      {value:".37", color: "SlateBlue", label: "Freedoms"},
+      {value:"2", color: "white",},
+      {value:".52", color: "firebrick", label: "Talent Development"},
+      {value:".60", color: "firebrick", label: "Human Condition"},
+      {value:".53", color: "firebrick", label: "Inclusivity"},
+      {value:".65", color: "firebrick", label: "Environment & Quality of Life"}
+    ],
+    [
+      {value:".62", color: "MediumSeaGreen", label: "Innovation"},
+      {value:".58", color: "MediumSeaGreen", label: "Entrepreneurship"},
+      {value:".53", color: "MediumSeaGreen", label: "Economic Robustness"},
+      {value:".34", color: "MediumSeaGreen", label: "Global Connectedness"},
+      {value:"2", color: "white",},
+      {value:".61", color: "SlateBlue", label: "Public Services"},
+      {value:".63", color: "SlateBlue", label: "Safety & Security"},
+      {value:".85", color: "SlateBlue", label: "Trust"},
+      {value:".80", color: "SlateBlue", label: "Freedoms"},
+      {value:"2", color: "white",},
+      {value:".65", color: "firebrick", label: "Talent Development"},
+      {value:".84", color: "firebrick", label: "Human Condition"},
+      {value:".78", color: "firebrick", label: "Inclusivity"},
+      {value:".83", color: "firebrick", label: "Environment & Quality of Life"}
+    ],
+    [
+      {value:".65", color: "MediumSeaGreen", label: "Innovation"},
+      {value:".39", color: "MediumSeaGreen", label: "Entrepreneurship"},
+      {value:".72", color: "MediumSeaGreen", label: "Economic Robustness"},
+      {value:".56", color: "MediumSeaGreen", label: "Global Connectedness"},
+      {value:"2", color: "white",},
+      {value:".79", color: "SlateBlue", label: "Public Services"},
+      {value:".53", color: "SlateBlue", label: "Safety & Security"},
+      {value:".62", color: "SlateBlue", label: "Trust"},
+      {value:".41", color: "SlateBlue", label: "Freedoms"},
+      {value:"12", color: "white",},
+      {value:".63", color: "firebrick", label: "Talent Development"},
+      {value:".62", color: "firebrick", label: "Human Condition"},
+      {value:".51", color: "firebrick", label: "Inclusivity"},
+      {value:".58", color: "firebrick", label: "Environment & Quality of Life"}
+    ],
+    [
+      {value:".78", color: "MediumSeaGreen", label: "Innovation"},
+      {value:".72", color: "MediumSeaGreen", label: "Entrepreneurship"},
+      {value:".85", color: "MediumSeaGreen", label: "Economic Robustness"},
+      {value:".77", color: "MediumSeaGreen", label: "Global Connectedness"},
+      {value:"2", color: "white",},
+      {value:".69", color: "SlateBlue", label: "Public Services"},
+      {value:".53", color: "SlateBlue", label: "Safety & Security"},
+      {value:".76", color: "SlateBlue", label: "Trust"},
+      {value:".55", color: "SlateBlue", label: "Freedoms"},
+      {value:"2", color: "white",},
+      {value:".68", color: "firebrick", label: "Talent Development"},
+      {value:".76", color: "firebrick", label: "Human Condition"},
+      {value:".74", color: "firebrick", label: "Inclusivity"},
+      {value:".80", color: "firebrick", label: "Environment & Quality of Life"}
+    ]
+  ];
+
+  var width = 1000;
+  var barHeight = 20;
+
+  window.onload=drawChart(0);
+
+  function drawChart(chosenDataIndex) {
+    console.log("Starting")
+    // Clear everything first
+    d3.select("#ESTbar").selectAll("*").remove()
+    // Start drawing
+    var chart2 = d3.select("#ESTbar")
+        .attr("width", width+140)
+        .attr("height", barHeight * data[chosenDataIndex].length)
+        .attr("class", "chart");
+
+    var bar2 = chart2.selectAll("g")
+      .data(data[chosenDataIndex])
+      .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(140," + i * barHeight + ")"; });
+
+    bar2.append("rect")
+      .attr("width", function(d,i) { return d.value*width})
+      .attr("height", barHeight - 2.5)
+      .style("fill", function(d,i) { return d.color});
+
+    bar2.append("text")
+        .attr("x", function(d) { return d.value*width - 3; })
+        .attr("y", barHeight / 2)
+        .attr("dy", ".35em")
+        .text(function(d) { return d.value*100 + "%"; });
+
+    bar2.append("text")
+        .attr("x", -5)
+        .attr("y", barHeight / 2)
+        .attr("dy", ".35em")
+        .text(function(d) { return d.label; });
+  }
+
+  //drawChart(1)
+  //setTimeout(() => drawChart(0), 5000)
+
+  new d3plus.Treemap()
+    .data(economydata)
+    .groupBy(["parent", "id"])
+    .shapeConfig({fill(d) {return d.color; }})
+    .select("#treemapboxeconomy")
+    .render();
+
+  new d3plus.Treemap()
+    .data(peopledata)
+    .groupBy(["parent", "id"])
+    .shapeConfig({fill(d) {return d.color; }})
+    .select("#treemapboxpeople")
+    .render();
+
+  new d3plus.Treemap()
+    .data(institutionsdata)
+    .groupBy(["parent", "id"])
+    .shapeConfig({fill(d) {return d.color; }})
+    .select("#treemapboxinstitutions")
+    .render();
+</script>
+
+</body>
+</html
